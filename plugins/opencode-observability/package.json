@@ -1,0 +1,17 @@
+{
+  "name": "@opencode-observability/plugin",
+  "version": "1.0.0",
+  "description": "OpenCode plugin for observability and event tracking",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@opencode-ai/plugin": "latest",
+    "typescript": "^5.3.0"
+  }
+}

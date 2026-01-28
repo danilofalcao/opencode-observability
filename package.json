@@ -1,0 +1,32 @@
+{
+  "name": "opencode-observability",
+  "version": "1.0.0",
+  "description": "Real-time monitoring and visualization for OpenCode agents through comprehensive hook event tracking",
+  "type": "module",
+  "scripts": {
+    "start": "./scripts/start-system.sh",
+    "stop": "./scripts/stop-system.sh",
+    "setup": "./scripts/setup.sh",
+    "dev:server": "cd apps/server && bun run dev",
+    "dev:client": "cd apps/client && bun run dev",
+    "build": "cd apps/client && bun run build",
+    "test": "bun test"
+  },
+  "keywords": [
+    "opencode",
+    "observability",
+    "monitoring",
+    "agents",
+    "ai",
+    "tracing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "plugins/*"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
