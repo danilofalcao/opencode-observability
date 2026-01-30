@@ -331,8 +331,12 @@ const getSessionColor = (sessionId: string) => {
 }
 
 const connectWebSocket = () => {
+  console.log('Connecting to WebSocket:', WS_URL)
   ws.value = new WebSocket(WS_URL)
-  ws.value.onopen = () => { isConnected.value = true }
+  ws.value.onopen = () => { 
+    console.log('WebSocket connected')
+    isConnected.value = true 
+  }
   ws.value.onmessage = (message) => {
     try {
       const data = JSON.parse(message.data)
@@ -342,7 +346,11 @@ const connectWebSocket = () => {
       }
     } catch (error) { console.error('Failed to parse message:', error) }
   }
-  ws.value.onclose = () => { 
+  ws.value.onerror = (error) => {
+    console.error('WebSocket error:', error)
+  }
+  ws.value.onclose = (event) => { 
+    console.log('WebSocket closed:', event.code, event.reason)
     isConnected.value = false
     setTimeout(connectWebSocket, 3000)
   }
